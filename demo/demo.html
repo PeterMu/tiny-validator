@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>TinyValidator Demo</title>
+        <style>
+            label {
+                font-size: 14px;
+                color: #555;
+            }
+            form > div {
+                margin-bottom: 16px;
+            }
+            input {
+                width: 200px;
+                padding: 5px 8px;
+            }
+            select {
+                width: 216px;
+                height: 27px;
+            }
+            .tips {
+                color: red;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <form>
+                <div>
+                    <label>Test1</label>
+                    <input name="test1"/>
+                    <span class="tips"></span>
+                </div>
+                <div>
+                    <label>Test2</label>
+                    <select name="test2">
+                        <option value=''></option>
+                        <option value='test'>test</option>
+                    </select>
+                    <span class="tips"></span>
+                </div>
+                </div>
+            </form>
+            <button name="valid">验证</button>
+        </div>
+        <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+        <script src="../src/validator.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
