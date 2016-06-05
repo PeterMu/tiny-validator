@@ -18,8 +18,14 @@
             }
         }
     })
-    $('button').click(function() {
+    $('button[name=valid]').click(function() {
         validator.valid()
+    })
+    $('button[name=set]').click(function() {
+        validator.setTips('test1', 'Hello, I am tips!')
+    })
+    $('button[name=isValid]').click(function() {
+        alert(validator.isValid())
     })
 }()
 

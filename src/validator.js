@@ -54,6 +54,7 @@
 
     Validator.prototype.validateAll = function(show) {
         var config = this.opts.config
+        this.errors = []
         show = show || false
         for(var key in config) {
             this._doValid(this.get(key).$el, show)
@@ -157,6 +158,17 @@
 
     Validator.prototype.isValid = function() {
         return this.valid().length == 0
+    }
+
+    Validator.prototype.setTips = function(name, tips) {
+        var $el = this.get(name).$el
+        var error = {
+            $el: $el,
+            name: name,
+            tips: tips
+        }
+        this.errors.push(error)
+        this.opts.handle(error, $el)
     }
 
     Validator.prototype.destroy = function() {

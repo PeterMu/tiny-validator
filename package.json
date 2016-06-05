@@ -2,7 +2,7 @@
   "name": "tiny-validator",
   "version": "0.1.0",
   "description": "超轻量级表单验证库",
-  "main": "dist/view.js",
+  "main": "dist/validator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
