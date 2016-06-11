@@ -74,31 +74,33 @@
     }
 
     Validator.prototype._doValid = function($target, show) {
-        var name = $target.attr('name')
-        var value = this.getValue($target)
-        var config = this.opts.config[name]
         var flag = true 
-        show = show || false
-        if(config && config.required) {
-            if(!value) {
-                flag = false
-                this._setError(name, false, 'required', show, config)
-                //验证为空时，返回，没必要继续做valid验证
-                return flag 
-            } else {
-                this._setError(name, true, 'required', show, config)
-                flag = true 
+        if(!$target.is(':hidden')) {
+            var name = $target.attr('name')
+            var value = this.getValue($target)
+            var config = this.opts.config[name]
+            show = show || false
+            if(config && config.required) {
+                if(!value) {
+                    flag = false
+                    this._setError(name, false, 'required', show, config)
+                    //验证为空时，返回，没必要继续做valid验证
+                    return flag 
+                } else {
+                    this._setError(name, true, 'required', show, config)
+                    flag = true 
+                }
             }
-        }
-        if(config && config.valid) {
-            if(config.valid instanceof RegExp) {
-                flag = config.valid.test(value)
-                this._setError(name, flag, 'valid', show, config)
-            }
+            if(config && config.valid) {
+                if(config.valid instanceof RegExp) {
+                    flag = config.valid.test(value)
+                    this._setError(name, flag, 'valid', show, config)
+                }
 
-            if(config.valid instanceof Function) {
-                flag = config.valid(value)
-                this._setError(name, flag, 'valid', show, config)
+                if(config.valid instanceof Function) {
+                    flag = config.valid(value)
+                    this._setError(name, flag, 'valid', show, config)
+                }
             }
         }
         return flag
