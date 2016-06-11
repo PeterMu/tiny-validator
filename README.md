@@ -78,3 +78,11 @@ config: {
 
 销毁表单验证组件实例。
 
+## Recent Release
+
+### v0.1.1
+
+- 取消对隐藏的 input/textarea/select 的验证
+- 修复 radio 和 checkbox 的取值 bug
+- 修复表单的 name 没有在 config 里配置时报错的 bug 
+
