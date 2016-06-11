@@ -65,12 +65,16 @@
         var $target = this.$el.find('[name=' + name + ']')
         return {
             $el: $target,
-            value: $target.val()
+            value: this.getValue($target)
         }
     }
 
     Validator.prototype.getValue = function($el) {
-        return $el.val()
+        if($el.is('input[type=checkbox]') || $el.is('input[type=radio]')) {
+            return this.$el.find('input[name="' + $el.attr('name') + '"]:checked').val()
+        } else {
+            return $el.val()
+        }
     }
 
     Validator.prototype._doValid = function($target, show) {
