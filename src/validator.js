@@ -79,7 +79,7 @@
         var config = this.opts.config[name]
         var flag = true 
         show = show || false
-        if(config.required) {
+        if(config && config.required) {
             if(!value) {
                 flag = false
                 this._setError(name, false, 'required', show, config)
@@ -90,7 +90,7 @@
                 flag = true 
             }
         }
-        if(config.valid) {
+        if(config && config.valid) {
             if(config.valid instanceof RegExp) {
                 flag = config.valid.test(value)
                 this._setError(name, flag, 'valid', show, config)
@@ -173,6 +173,16 @@
 
     Validator.prototype.destroy = function() {
         this.$el.off()
+    }
+
+    Validator.prototype.getData = function() {
+        var data = {}, $el = null
+        var array = this.$el.find('input,textarea,select')
+        for(var i=0,l=array.length; i<l; i++) {
+            $el = $(array[i])
+            data[$el.attr('name')] = this.getValue($el)
+        }
+        return data
     }
 
     return Validator
