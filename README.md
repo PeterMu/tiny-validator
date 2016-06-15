@@ -80,6 +80,9 @@ config: {
 
 ## Recent Release
 
+### v0.1.2
+- 修正 view 模块定义写法，使用AMD写法。
+
 ### v0.1.1
 
 - 取消对隐藏的 input/textarea/select 的验证
