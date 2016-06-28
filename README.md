@@ -80,12 +80,6 @@ config: {
 
 ## Recent Release
 
-### v0.1.2
-- 修正 view 模块定义写法，使用AMD写法。
-
-### v0.1.1
-
-- 取消对隐藏的 input/textarea/select 的验证
-- 修复 radio 和 checkbox 的取值 bug
-- 修复表单的 name 没有在 config 里配置时报错的 bug 
+### v0.1.3
+- 修正 seajs 的兼容问题。
 

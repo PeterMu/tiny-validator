@@ -1,6 +1,6 @@
 {
   "name": "tiny-validator",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "超轻量级表单验证库",
   "main": "dist/validator.js",
   "scripts": {
