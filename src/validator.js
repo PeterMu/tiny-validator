@@ -75,11 +75,16 @@
     }
 
     Validator.prototype.getValue = function($el) {
+        var value = ''
         if($el.is('input[type=checkbox]') || $el.is('input[type=radio]')) {
-            return this.$el.find('input[name="' + $el.attr('name') + '"]:checked').val()
+            value = this.$el.find('input[name="' + $el.attr('name') + '"]:checked').val()
         } else {
-            return $el.val()
+            value = $el.val()
         }
+        if (value.trim) {
+            value = value.trim()
+        }
+        return value
     }
 
     Validator.prototype._doValid = function($target, show) {
