@@ -81,7 +81,7 @@
         } else {
             value = $el.val()
         }
-        if (value.trim) {
+        if (value && value.trim) {
             value = value.trim()
         }
         return value
