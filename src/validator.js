@@ -23,7 +23,7 @@
         }
     }
 }(function(jQuery){
-    var $ = jQuery 
+    var $ = jQuery
 
     var Validator = function(el, opts) {
         this.errors = []
@@ -88,7 +88,7 @@
     }
 
     Validator.prototype._doValid = function($target, show) {
-        var flag = true 
+        var flag = true
         if(!$target.is(':hidden')) {
             var name = $target.attr('name')
             var value = this.getValue($target)
@@ -99,10 +99,10 @@
                     flag = false
                     this._setError(name, false, 'required', show, config)
                     //验证为空时，返回，没必要继续做valid验证
-                    return flag 
+                    return flag
                 } else {
                     this._setError(name, true, 'required', show, config)
-                    flag = true 
+                    flag = true
                 }
             }
             if(config && config.valid) {
@@ -123,7 +123,7 @@
     Validator.prototype.parseError = function($el, name, type, config) {
         var error = {
             $el: $el,
-            name: name 
+            name: name
         }
         if(type == 'required') {
             error.tips = config.requiredTips || '该项为必填项'
@@ -196,7 +196,9 @@
         var array = this.$el.find('input,textarea,select')
         for(var i=0,l=array.length; i<l; i++) {
             $el = $(array[i])
-            data[$el.attr('name')] = this.getValue($el)
+            if ($el.attr('name')) {
+                data[$el.attr('name')] = this.getValue($el)
+            }
         }
         return data
     }
